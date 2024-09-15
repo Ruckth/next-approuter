@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 function TopNav() {
   return (
-    <nav className="bg-gray-800 p-4 border-b-white">
+    <nav className="bg-gray-800 p-4 border-b-white text-xl">
     <div> Gallery</div>
     </nav>
   );
