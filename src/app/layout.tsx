@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 function TopNav() {
   return (
-    <nav className="bg-gray-800 p-4 border-b-white text-xl">
-    <div> Gallery</div>
+    <nav className="bg-gray-800 p-4 border-b-white text-xl mb-4">
+      <div>Gallery</div>
     </nav>
   );
 }
@@ -22,10 +22,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-    <body>
-     <TopNav />
-      {children}
-    </body>
-  </html>
+      <body>
+        <TopNav />
+        {children}
+      </body>
+    </html>
   );
 }
