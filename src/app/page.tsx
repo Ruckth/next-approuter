@@ -1,23 +1,29 @@
-import Link from "next/link";
 import { db } from "~/server/db";
-import { images } from "~/server/db/schema";
+import { images as imagesSchema } from "~/server/db/schema";
+import LottieAnimation from "./_components/LottieAnimation";
 
 export const dynamic = "force-dynamic";
 
-// mockup urls
+interface Image {
+  id: number;
+  url: string;
+  name: string;
+}
 
 export default async function HomePage() {
-  const images = await db.query.images.findMany({
-    orderBy:(model,{desc}) =>desc(model.id),
+  const images: Image[] = await db.query.images.findMany({
+    orderBy: (model, { desc }) => desc(model.id),
   });
 
   return (
     <main className="text-center">
-      Hi (Images) <br />
+    <h1 style={{ fontSize: '2em' }}>We are currently under Development phase</h1>
+      <br />
+      <LottieAnimation src="https://lottie.host/6b4119fd-167f-43c4-bbab-cbbe5fcd2c9b/tic9pQ6MRZ.json" />
       <div className="justify-center flex flex-wrap gap-3">
-        {[...images].map((image, index) => (
+        {images.map((image, index) => (
           <div key={image.id + "-" + index} className="flex w-48 flex-col">
-            <img src={image.url} />
+            <img src={image.url} alt={image.name} />
             <div>{image.name}</div>
           </div>
         ))}
